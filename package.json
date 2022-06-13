@@ -2,7 +2,7 @@
   "name": "electron",
   "productName": "electron",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Electron desktop application",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",

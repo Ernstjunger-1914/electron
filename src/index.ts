@@ -13,8 +13,13 @@ if (require('electron-squirrel-startup')) {
 const createWindow = (): void => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    height: 600,
-    width: 800,
+    minHeight: 600,
+    minWidth: 800,
+    height: 800,
+    width: 1280,
+    resizable: true,
+    center: true,
+    autoHideMenuBar: true,
   });
 
   // and load the index.html of the app.
