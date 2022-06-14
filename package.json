@@ -4,21 +4,6 @@
   "version": "1.0.0",
   "description": "Electron desktop application",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.39",
-    "@types/react": "^18.0.12",
-    "@types/react-dom": "^18.0.5",
-    "electron-is-dev": "^2.0.0",
-    "eslint": "^8.17.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
   "keywords": [
     "typescript",
     "electronjs",
@@ -38,9 +23,9 @@
     "react:build": "react-scripts build",
     "react:test": "react-scripts test",
     "react:eject": "react-scripts eject",
-    "start": "",
-    "build": "npm run react-build && electron-builder",
-    "release": "npm run react-build && electron-builder --publish=always",
+    "start": "tsc ./src/main/main.ts && concurrently \"cross-env BROWSER=none npm run react:start\" \"wait-on http://localhost:3000 && electron .\"",
+    "build": "npm run react:build && electron-builder",
+    "release": "npm run react:build && electron-builder --publish=always",
     "lint": "eslint --ext .ts,.tsx ."
   },
   "eslintConfig": {
@@ -60,6 +45,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.39",
+    "@types/react": "^18.0.12",
+    "@types/react-dom": "^18.0.5",
+    "electron-is-dev": "^2.0.0",
+    "eslint": "^8.17.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "concurrently": "^7.2.1",

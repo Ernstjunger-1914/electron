@@ -5,7 +5,6 @@ var isDev = require("electron-is-dev");
 var path = require("path");
 var mainWindow;
 var createWindow = function () {
-    // Create the browser window.
     mainWindow = new electron_1.BrowserWindow({
         minHeight: 600,
         minWidth: 800,
@@ -20,7 +19,7 @@ var createWindow = function () {
             devTools: isDev
         }
     });
-    mainWindow.loadURL(isDev ? 'http://localhost:3000/' : "file://".concat(path.join(__dirname, '../build/index.html')));
+    mainWindow.loadURL(isDev ? 'http://localhost:3000/' : "file://".concat(path.join(__dirname, '../../public/index.html')));
     if (isDev) {
         mainWindow.webContents.openDevTools({ mode: 'detach' });
     }
